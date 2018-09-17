@@ -78,6 +78,7 @@ public class ImageDataSource implements LoaderManager.LoaderCallbacks<Cursor> {
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         imageFolders.clear();
         if (data != null) {
+            data.moveToFirst();
             ArrayList<ImageItem> allImages = new ArrayList<>();   //所有图片的集合,不分文件夹
             while (data.moveToNext()) {
                 //查询数据
